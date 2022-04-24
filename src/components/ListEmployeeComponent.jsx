@@ -7,6 +7,7 @@ class ListEmployeeComponent extends Component {
     this.state = {
       departments: [],
     };
+    this.addDepartment = this.addDepartment.bind(this);
   }
   componentDidMount() {
     EmployeeService.getAllDepartments().then((res) => {
@@ -14,10 +15,19 @@ class ListEmployeeComponent extends Component {
     });
   }
 
+  addDepartment() {
+    console.log("event handler executed successfuly");
+  }
+
   render() {
     return (
       <div>
         <h2 className="text-center"> Department Details </h2>
+        <div className="row">
+          <button className="btn btn-primary" onClick={this.addDepartment}>
+            Add Department
+          </button>
+        </div>
         <div className="row">
           <table className="table table-striped table-bordered">
             <thead>

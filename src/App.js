@@ -1,8 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
+import ListDepartmentComponet from "./components/ListDepartmentComponet";
+import AddDepartmentComponent from "./components/AddDepartmentComponent";
 //http://localhost:3000/employees
 function App() {
   return (
@@ -11,11 +12,15 @@ function App() {
         <HeaderComponent />
         <div className="container">
           <Routes>
-            <Route exact path="/" element={<ListEmployeeComponent />} />
+            <Route path="/" element={<ListDepartmentComponet />} />
+            <Route path="/department" element={<ListDepartmentComponet />} />
             <Route
-              exact
-              path="/employees"
-              element={<ListEmployeeComponent />}
+              path="/add-department"
+              element={<AddDepartmentComponent />}
+            />
+            <Route
+              path="/edit-department/:departmentId"
+              element={<AddDepartmentComponent />}
             />
           </Routes>
         </div>
